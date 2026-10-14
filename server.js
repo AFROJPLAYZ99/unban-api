@@ -2,6 +2,11 @@ const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+app.get('/', (req, res) => {
+  res.send('API Server Chal Raha Hai! Use /id?unben=YOUR_ID');
+});
+
+
 app.get('/id', (req, res) => {
   const { unben } = req.query;
 
