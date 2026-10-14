@@ -2,11 +2,15 @@ const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+// Homepage ke liye (ab Cannot GET / nahi aayega)
 app.get('/', (req, res) => {
-  res.send('API Server Chal Raha Hai! Use /id?unben=YOUR_ID');
+  res.json({
+    status: "active",
+    message: "Server chal raha hai! Use /id?unben=YOUR_ID"
+  });
 });
 
-
+// ID check karne ke liye
 app.get('/id', (req, res) => {
   const { unben } = req.query;
 
